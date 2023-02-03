@@ -11,11 +11,13 @@ uvicorn = {extras = ["standard"], version = "^0.20.0"}
 pydantic = "^1.10.4"
 SQLAlchemy = "^2.0.1"
 celery = "^5.2.7"
+psycopg2 = "^2.9.5"
 
-[tool.poetry.dev-dependencies]
-python-dotenv = "^0.21.1"
+[tool.poetry.group.dev.dependencies]
+alembic = "^1.9.2"
 black = "^23.1.0"
 flake8 = "^6.0.0"
+python-dotenv = "^0.21.1"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.1"
