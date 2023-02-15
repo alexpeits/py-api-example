@@ -1,6 +1,7 @@
 # ---
-# FROM python:3.10-slim-bullseye as base
 FROM python:3.10-alpine3.17 as base
+# to use debian instead of alpine:
+# FROM python:3.10-slim-bullseye as base
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     POETRY_HOME="/install/poetry" \
@@ -17,11 +18,9 @@ RUN mkdir /install
 # ---
 FROM base as builder
 
-# RUN apt-get update && \
-#     apt-get install \
-#     -y --no-install-recommends \
-#     curl
 RUN apk add curl
+# otherwise for debian:
+# RUN apt-get update && apt-get install -y --no-install-recommends curl
 
 RUN curl -sSL https://install.python-poetry.org | python -
 
